@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DarlMLRestExample", "DarlMLRestExample\DarlMLRestExample.csproj", "{8846CF8A-ED8F-48AC-B2C9-46E4BD14BD83}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8846CF8A-ED8F-48AC-B2C9-46E4BD14BD83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8846CF8A-ED8F-48AC-B2C9-46E4BD14BD83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8846CF8A-ED8F-48AC-B2C9-46E4BD14BD83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8846CF8A-ED8F-48AC-B2C9-46E4BD14BD83}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7BE0C0FC-9591-4B61-B6B4-990D1275AB8A}
+	EndGlobalSection
+EndGlobal
