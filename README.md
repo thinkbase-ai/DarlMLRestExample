@@ -32,7 +32,7 @@ For each example a data set and specification are read from the exe's embedded d
 
 The machine learning process expands the input and output definitions with fuzzy sets and categories and creates rules that are inserted into the skeleton rule set.
 
-The definition of _DAarlMLData_ and information on the rest interface can be found at [darl.ai/swagger](http://www.darl.ai/swagger/).
+The definition of _DarlMLData_ and information on the REST interface can be found at [darl.ai/swagger](http://www.darl.ai/swagger/).
 
 # The examples
 
