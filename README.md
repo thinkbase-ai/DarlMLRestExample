@@ -1,6 +1,51 @@
 # DarlMLRestExample
 An example of using the free whitebox DARL Machine learning service.
 
+This example is a simple console application that loads the data and specification for 3 different supervized learning examples and sends them off to the free DARL Machine learning service. The results of the learning process are emailed back to you. This includes a complete DARL ruleset that can be used to model the relationships learned from the data.
+
+You will want to apply your own data, but the three examples demonstrate how to do this. Please note that the examples given are classification examples, but DARL can also predict numeric variables. 
+
+The code is simple:
+```C#
+        static string destEmail = "support@darl.ai"; //put your email address here!
+        static void Main(string[] args)
+        {
+            DarlML("yingyang").Wait();
+            DarlML("iris").Wait();
+            DarlML("cleveheart").Wait();
+        }
+
+        static async Task DarlML(string examplename)
+        {
+            var reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream($"DarlMLRestExample.{examplename}.darl"));
+            var source = reader.ReadToEnd();
+            reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream($"DarlMLRestExample.{examplename}.xml"));
+            var data = reader.ReadToEnd();
+            var spec = new DarlMLData { code = source, data = data, email = destEmail, percentTrain = 100, sets = 5, jobName = examplename};//use your own choice of training percent (1-100) and sets, (3,5,7,9)
+            var valueString = JsonConvert.SerializeObject(spec);
+            var client = new HttpClient();
+            var response = await client.PostAsync("https://darl.ai/api/Linter/DarlML", new StringContent(valueString, Encoding.UTF8, "application/json"));
+            //check for errors here...
+        }
+```
+For each example a data set and specification are read from the exe's embedded data and a _DarlMLData_ class is constructed containing the data and skeleton code along with a couple of simple parameters and the email to send the result to.
+
+The machine learning process expands the input and output definitions with fuzzy sets and categories and creates rules that are inserted into the skeleton rule set.
+
+The definition of _DAarlMLData_ and information on the rest interface can be found at [darl.ai/swagger](http://www.darl.ai/swagger/).
+
+# The examples
+
+## Iris
+This is the famous Fisher's Iris data containing 50 examples each of 3 cultivars of Iris. The data values are petal and sepal widths and lengths, the output is the cultivar. This is a surprisingly difficult data set, since the 3 types are not _linearly separable_ i.e. you could not efficiently separate them by placing planes in the 4 dimensional input space.
+
+## YingYang
+This is a two dimensional problem with two categories forming the shape of the Chinese Ying Yang symbol. Again they are not linearly separable. Try higher set values, like 7 & 9.
+
+## Cleveheart
+This is the cleveland heart data set containing data on pationts admitted following a heart attack. The predicted value is the outcome encoded as a set of integers. 
+
+
 Machine Learning
 ===
 You can machine learn DARL rulesets. Not only that, but the quality of machine learning is very high.
@@ -130,7 +175,7 @@ Use an XML or Json editor to ensure that your paths are correct.
 It is also entirely possible that there is nothing to be learned from a data set; i.e. that there is nothing in the data that can be used to predict the output. This will be evinced by poor results.
 
 The choice of the number of fuzzy sets determines to a certain extent the complexity of the resulting model if numeric inputs or outputs are present.
-A generalization of Occam's razor predicts that there is an optimum complexity for any model. This means that you may find that as you increase the number of fuzzy sets the performance on the training data may improve, but at some point the test data performance may start to get worse.
+A generalization of Occam's razor predicts that there is an optimum complexity for any model. This means that you may find that as you increase the number of fuzzy sets the performance on the training data may improve, but at some point the test data performance may start to get worse. You may therefore choose to experiment with the number of fuzzy sets.
 
 Finally, Lotfi Zadeh, the now deceased inventor of Fuzzy Logic thought of it as _Granular_ computing. By this he meant that you could use relatively simple and few blocks to represent quite complex systems. This is one of the surprising things about fuzzy logic, that the models created are often much simpler and more robust than those created by purely boolean rule induction.
 If you find yourself worrying too much about the exact definitions of fuzzy sets, you are probably applying machine learning to a system capable of analytic modeling. Machine learning is for noisy, ill defined or ephemeral relationships.
