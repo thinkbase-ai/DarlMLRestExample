@@ -139,14 +139,14 @@ This is done using relative expressions from the pattern.
 So given data looking like the above, where each Iris block corresponds to a pattern, we can access the individual data items by name.
 
 ## Missing data
-Many machine learning algorithms demand _orthogonal_ data. That is data where every pattern has the same data values with none missing. 
+Many machine learning algorithms demand _orthogonal_ data. That is data where every pattern has the same set of data values with none missing. 
 Users of such algorithms are stuck with the problem of inserting dummy values where real values are not available.
 Our machine learning algorithm can handle missing data without the need to create dummy values. Obviously the more data that is missing, the more the machine learning is likely to degrade, but a pattern with missing values can still be used for machine learning without any further treatment.
 
 
 ## Wiring
 DARL follows a schematic paradigm, in that rulesets are treated like circuit elements that can be wired up.
-You can read more [here](./darl).
+You can read more [here](https://darl.ai/help/darl).
 
 _Mapinput_ and _mapoutput_are elements at the edge of the schematic sheet, and these wire up to the the data items.
 
