@@ -5,4 +5,26 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="CleveHeart.darl" />
+    <None Remove="CleveHeart.xml" />
+    <None Remove="iris.darl" />
+    <None Remove="iris.xml" />
+    <None Remove="yingyang.darl" />
+    <None Remove="yingyang.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="cleveheart.darl" />
+    <EmbeddedResource Include="cleveheart.xml" />
+    <EmbeddedResource Include="iris.darl" />
+    <EmbeddedResource Include="iris.xml" />
+    <EmbeddedResource Include="yingyang.darl" />
+    <EmbeddedResource Include="yingyang.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
 </Project>

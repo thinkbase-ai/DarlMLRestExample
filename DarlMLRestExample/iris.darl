@@ -1,0 +1,25 @@
+﻿pattern "//Iris";
+
+ruleset iris supervised
+{
+	input numeric petal_length;
+	input numeric sepal_length;
+	input numeric petal_width;
+	input numeric sepal_width;
+
+	output categorical class;
+
+}
+ 
+mapinput petal_length "petal_length";
+mapinput petal_width "petal_width";	
+mapinput sepal_length "sepal_length";
+mapinput sepal_width "sepal_width";
+
+mapoutput class "class";
+
+wire petal_length iris.petal_length;
+wire petal_width iris.petal_width;
+wire sepal_length iris.sepal_length;
+wire sepal_width iris.sepal_width;
+wire iris.class class;

@@ -1,0 +1,20 @@
+﻿pattern "//pattern";
+
+ruleset yingyang supervised
+{
+input numeric X;
+input numeric Y;
+
+output categorical G;
+
+}
+ 
+mapinput Y "Y";
+mapinput X "X";	
+
+mapoutput G "G";
+
+wire Y yingyang.Y;
+wire X yingyang.X;
+
+wire yingyang.G G;

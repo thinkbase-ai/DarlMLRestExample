@@ -1,0 +1,49 @@
+﻿pattern "//case";
+
+ruleset cleve_heart supervised
+{
+	input numeric age;
+	input categorical sex;
+	input categorical cp;
+	input numeric trestbps;
+	input categorical fbs;
+	input categorical restecg;
+	input numeric thalach;
+	input categorical exang;
+	input numeric oldpeak;
+	input categorical slope;
+	input categorical ca;
+	input numeric thal;
+
+	output categorical outcome;
+
+}
+ 
+mapinput age "age";
+mapinput sex "sex";
+mapinput cp "cp";
+mapinput trestbps "trestbps";
+mapinput fbs "fbs";
+mapinput restecg "restecg";
+mapinput thalach "thalach";
+mapinput exang "exang";
+mapinput oldpeak "oldpeak";
+mapinput slope "slope";
+mapinput ca "ca";
+mapinput thal "thal";
+
+mapoutput outcome "outcome";
+
+wire age cleve_heart.age;
+wire sex cleve_heart.sex;
+wire cp cleve_heart.cp;
+wire trestbps cleve_heart.trestbps;
+wire fbs cleve_heart.fbs;
+wire restecg cleve_heart.restecg;
+wire thalach cleve_heart.thalach;
+wire exang cleve_heart.exang;
+wire oldpeak cleve_heart.oldpeak;
+wire slope cleve_heart.slope;
+wire ca cleve_heart.ca;
+wire thal cleve_heart.thal;
+wire cleve_heart.outcome outcome;
