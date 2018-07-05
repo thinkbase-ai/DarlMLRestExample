@@ -1,6 +1,8 @@
 # DarlMLRestExample
 An example of using the free whitebox DARL Machine learning service.
 
+[Read the full article here](https://www.codeproject.com/Articles/1248572/DARL-and-Whitebox-machine-learning)
+
 This example is a simple console application that loads the data and specification for 3 different supervized learning examples and sends them off to the free DARL Machine learning service. The results of the learning process are emailed back to you. This includes a complete DARL ruleset that can be used to model the relationships learned from the data.
 
 You will want to apply your own data, but the three examples demonstrate how to do this. Please note that the examples given are classification examples, but DARL can also predict numeric variables. 
